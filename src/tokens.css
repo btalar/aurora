@@ -1,0 +1,282 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+/* variables.css */
+:root {
+    /**
+     * @tokens Colors
+     * @presenter Color
+     */
+    --wl-neutral-50: #fafafa; /* Lightest neutral shade */
+    --wl-neutral-100: #f5f5f5; /* Very light neutral */
+    --wl-neutral-200: #e9eaeb; /* Light neutral for subtle backgrounds */
+    --wl-neutral-300: #d5d7da; /* Light neutral for borders */
+    --wl-neutral-400: #a4a7ae; /* Medium light neutral */
+    --wl-neutral-500: #717680; /* Medium neutral */
+    --wl-neutral-600: #535862; /* Medium dark neutral */
+    --wl-neutral-700: #414651; /* Dark neutral */
+    --wl-neutral-800: #252b37; /* Very dark neutral */
+    --wl-neutral-900: #101828; /* Darkest neutral shade */
+    --wl-neutral-white: #ffffff; /* Pure white */
+    --wl-neutral-black: #000000; /* Pure black */
+    --wl-neutral-transparant: #ffffff00; /* Transparent */
+
+    /**
+     * @tokens Colors
+     * @presenter Color
+     */
+    --wl-mint-50: #eaf9f6; /* Lightest mint shade */
+    --wl-mint-100: #d2f2eb; /* Very light mint */
+    --wl-mint-200: #a8e5d8; /* Light mint */
+    --wl-mint-300: #7dd8c5; /* Light mint for accents */
+    --wl-mint-400: #5ccdb7; /* Medium light mint */
+    --wl-mint-500: #45beaa; /* Primary mint color */
+    --wl-mint-600: #39a592; /* Medium dark mint */
+    --wl-mint-700: #2d8978; /* Dark mint */
+    --wl-mint-800: #216e5f; /* Very dark mint */
+    --wl-mint-900: #13493e; /* Darkest mint shade */
+
+    /**
+     * @tokens Colors
+     * @presenter Color
+     */
+    --wl-blue-50: #f0f9ff; /* Lightest blue shade */
+    --wl-blue-100: #e0f2fe; /* Very light blue */
+    --wl-blue-200: #b9e6fe; /* Light blue */
+    --wl-blue-300: #7cd4fd; /* Light blue for highlights */
+    --wl-blue-400: #36bffa; /* Medium light blue */
+    --wl-blue-500: #0ba5ec; /* Primary blue color */
+    --wl-blue-600: #0086c9; /* Medium dark blue */
+    --wl-blue-700: #026aa2; /* Dark blue */
+    --wl-blue-800: #065986; /* Very dark blue */
+    --wl-blue-900: #0b4a6f; /* Darkest blue shade */
+
+    /**
+     * @tokens Colors
+     * @presenter Color
+     */
+    --wl-red-50: #fef3f2; /* Lightest red shade */
+    --wl-red-100: #fee4e2; /* Very light red for error backgrounds */
+    --wl-red-200: #fecdca; /* Light red */
+    --wl-red-300: #fda29b; /* Light red for accents */
+    --wl-red-400: #f97066; /* Medium light red */
+    --wl-red-500: #f04438; /* Primary error color */
+    --wl-red-600: #d92d20; /* Medium dark red */
+    --wl-red-700: #b42318; /* Dark red */
+    --wl-red-800: #912018; /* Very dark red */
+    --wl-red-900: #7a271a; /* Darkest red shade */
+
+    /**
+     * @tokens Colors
+     * @presenter Color
+     */
+    --wl-green-50: #ecfdf3; /* Lightest green shade */
+    --wl-green-100: #d1fadf; /* Very light green for success backgrounds */
+    --wl-green-200: #a6f4c5; /* Light green */
+    --wl-green-300: #6ce9a6; /* Light green for accents */
+    --wl-green-400: #32d583; /* Medium light green */
+    --wl-green-500: #32d583; /* Primary success color */
+    --wl-green-600: #039855; /* Medium dark green */
+    --wl-green-700: #027a48; /* Dark green */
+    --wl-green-800: #05603a; /* Very dark green */
+    --wl-green-900: #054f31; /* Darkest green shade */
+
+    /**
+     * @tokens Colors
+     * @presenter Color
+     */
+    --wl-orange-50: #fffaeb; /* Lightest orange shade */
+    --wl-orange-100: #fef0c7; /* Very light orange for warning backgrounds */
+    --wl-orange-200: #fedf89; /* Light orange */
+    --wl-orange-300: #fec84b; /* Light orange for accents */
+    --wl-orange-400: #fdb022; /* Medium light orange */
+    --wl-orange-500: #f79009; /* Primary warning color */
+    --wl-orange-600: #dc6803; /* Medium dark orange */
+    --wl-orange-700: #b54708; /* Dark orange */
+    --wl-orange-800: #93370d; /* Very dark orange */
+    --wl-orange-900: #7a2e0e; /* Darkest orange shade */
+
+    /**
+     * @tokens Colors
+     * @presenter Color
+     */
+    --wl-brand-primary: #45beaa; /* Primary brand color */
+
+    /**
+     * @tokens Spacing
+     * @presenter Spacing
+     */
+    --wl-dimensions-0: 0; /* Zero spacing */
+    --wl-dimensions-0-5: 0.5px; /* Extra small spacing - 0.5px */
+    --wl-dimensions-1: 1px; /* Extra small spacing - 1px */
+    --wl-dimensions-2: 2px; /* Extra small spacing - 2px */
+    --wl-dimensions-4: 4px; /* Small spacing - 4px */
+    --wl-dimensions-8: 8px; /* Medium small spacing - 8px */
+    --wl-dimensions-10: 10px; /* Medium spacing - 10px */
+    --wl-dimensions-16: 16px; /* Medium large spacing - 16px */
+    --wl-dimensions-20: 20px; /* Large spacing - 20px */
+    --wl-dimensions-24: 24px; /* Extra large spacing - 24px */
+    --wl-dimensions-30: 30px; /* Extra extra large spacing - 30px */
+    --wl-dimensions-32: 32px; /* Maximum spacing - 32px */
+    --wl-dimensions-999: 999px; /* Fully rounded corners */
+
+    /**
+     * @tokens Typography
+     * @presenter FontFamily
+     */
+    --wl-fonts-primary: 'Inter', system-ui, -apple-system, sans-serif; /* Primary font family */
+    --wl-fonts-secondary: 'Coiny', cursive; /* Secondary font family */
+
+    /**
+     * @tokens Typography
+     * @presenter FontWeight
+     */
+    --wl-fontweight-thin: 400; /* Thin font weight */
+    --wl-fontweight-normal: 500; /* Normal font weight */
+    --wl-fontweight-semibold: 600; /* Semi-bold font weight */
+    --wl-fontweight-bold: 700; /* Bold font weight */
+
+    /**
+     * @tokens Spacing
+     * @presenter Spacing
+     */
+    --wl-padding-none: var(--wl-dimensions-0); /* No padding */
+    --wl-padding-small: var(--wl-dimensions-8); /* Small padding - 8px */
+    --wl-padding-medium: var(--wl-dimensions-16); /* Medium padding - 16px */
+    --wl-padding-large: var(--wl-dimensions-24); /* Large padding - 24px */
+
+    /**
+     * @tokens Borders
+     * @presenter Spacing
+     */
+    --wl-border-width-none: var(--wl-dimensions-0); /* No border */
+    --wl-border-width-thin: var(--wl-dimensions-0-5); /* Thin border - 0.5px */
+    --wl-border-width-default: var(--wl-dimensions-1); /* Default border - 1px */
+    --wl-border-width-thick: var(--wl-dimensions-2); /* Thick border - 2px */
+    --wl-border-width-heavy: var(--wl-dimensions-4); /* Heavy border - 4px */
+
+    /**
+     * @tokens Borders
+     * @presenter BorderRadius
+     */
+    --wl-border-radius-none: var(--wl-dimensions-0); /* No border radius */
+    --wl-border-radius-small: var(--wl-dimensions-2); /* Small border radius - 2px */
+    --wl-border-radius-medium: var(--wl-dimensions-4); /* Medium border radius - 4px */
+    --wl-border-radius-large: var(--wl-dimensions-8); /* Large border radius - 8px */
+    --wl-border-radius-rounded: var(--wl-dimensions-999); /* Fully rounded - 999px */
+}
+
+/* darkmode.css */
+.dark {
+    /**
+     * @tokens Semantic Colors - Dark Mode
+     * @presenter Color
+     */
+    --wl-color: #ffffff; /* Base text color for dark mode */
+
+    /* Border colors */
+    --wl-border-default-primary: var(--wl-neutral-800); /* Default border color */
+    --wl-border-subtile-primary: var(--wl-neutral-700); /* Subtle border color */
+    --wl-border-strong-primary: var(--wl-neutral-700); /* Strong border color */
+    --wl-border-interactive-primary: var(--wl-brand-primary); /* Interactive border color */
+    --wl-border-transparant-primary: var(--wl-neutral-transparant); /* Transparent border */
+
+    /* Content colors */
+    --wl-content-neutral-base: var(--wl-neutral-50); /* Base text color */
+    --wl-content-neutral-secondary: var(--wl-neutral-200); /* Secondary text color */
+    --wl-content-neutral-tertiary: var(--wl-neutral-300); /* Tertiary text color */
+    --wl-content-neutral-invert: var(--wl-neutral-black); /* Inverted text color */
+    --wl-content-neutral-white: var(--wl-neutral-white); /* White text */
+    --wl-content-neutral-black: var(--wl-neutral-black); /* Black text */
+
+    /* Background colors */
+    --wl-background-base-default: var(--wl-neutral-900); /* Default background */
+    --wl-background-base-hover: var(--wl-neutral-900); /* Hover background */
+    --wl-background-soft-default: var(--wl-neutral-800); /* Soft background */
+    --wl-background-elevated-default: var(--wl-neutral-700); /* Elevated background */
+    --wl-background-transparant-default: var(--wl-neutral-transparant); /* Transparent background */
+    --wl-background-interactive-primary: var(--wl-brand-primary); /* Interactive background */
+
+    /* Feedback colors */
+    --wl-feedback-error-primary: var(--wl-red-400); /* Primary error color */
+    --wl-feedback-error-secondary: var(--wl-red-200); /* Secondary error color */
+    --wl-feedback-error-tertiary: var(--wl-red-50); /* Tertiary error color */
+    --wl-border-feedback-error: var(--wl-feedback-error-primary); /* Error border color */
+    --wl-background-feedback-error: var(--wl-feedback-error-primary); /* Error background color */
+}
+
+/* large.css */
+:root {
+    --wl-heading-xxl-font-family: var(--wl-fonts-primary);
+    --wl-heading-xxl-size: 32px;
+    --wl-heading-xxl-font-weight: var(--wl-fontweight-thin);
+    --wl-heading-xxl-line-height: 40px;
+    --wl-heading-xxl-spacing: 0;
+    --wl-heading-subheading-font: var(--wl-fonts-primary);
+    --wl-heading-subheading-size: 24px;
+    --wl-heading-subheading-weight: var(--wl-fontweight-normal);
+    --wl-heading-subheading-line-height: 32px;
+    --wl-label-medium-font: var(--wl-fonts-primary);
+    --wl-label-medium-size: 20px;
+    --wl-label-medium-weight: var(--wl-fontweight-normal);
+    --wl-label-medium-line-height: 30px;
+}
+
+/* lightmode.css */
+:root {
+    /**
+     * @tokens Semantic Colors - Light Mode
+     * @presenter Color
+     */
+    --wl-color: #ffffff; /* Base text color for light mode */
+
+    /* Border colors */
+    --wl-border-default-primary: var(--wl-neutral-100); /* Default border color */
+    --wl-border-subtile-primary: var(--wl-neutral-200); /* Subtle border color */
+    --wl-border-strong-primary: var(--wl-neutral-300); /* Strong border color */
+    --wl-border-interactive-primary: var(--wl-brand-primary); /* Interactive border color */
+    --wl-border-transparant-primary: var(--wl-neutral-transparant); /* Transparent border */
+
+    /* Content colors */
+    --wl-content-neutral-base: var(--wl-neutral-900); /* Base text color */
+    --wl-content-neutral-secondary: var(--wl-neutral-700); /* Secondary text color */
+    --wl-content-neutral-tertiary: var(--wl-neutral-600); /* Tertiary text color */
+    --wl-content-neutral-invert: var(--wl-neutral-white); /* Inverted text color */
+    --wl-content-neutral-white: var(--wl-neutral-white); /* White text */
+    --wl-content-neutral-black: var(--wl-neutral-black); /* Black text */
+
+    /* Background colors */
+    --wl-background-base-default: var(--wl-neutral-white); /* Default background */
+    --wl-background-base-hover: var(--wl-neutral-white); /* Hover background */
+    --wl-background-soft-default: var(--wl-neutral-100); /* Soft background */
+    --wl-background-elevated-default: var(--wl-neutral-200); /* Elevated background */
+    --wl-background-transparant-default: var(--wl-neutral-transparant); /* Transparent background */
+    --wl-background-interactive-primary: var(--wl-brand-primary); /* Interactive background */
+
+    /* Feedback colors */
+    --wl-feedback-error-primary: var(--wl-red-500); /* Primary error color */
+    --wl-feedback-error-secondary: var(--wl-red-300); /* Secondary error color */
+    --wl-feedback-error-tertiary: var(--wl-red-100); /* Tertiary error color */
+    --wl-border-feedback-error: var(--wl-feedback-error-primary); /* Error border color */
+    --wl-background-feedback-error: var(--wl-feedback-error-primary); /* Error background color */
+}
+
+/* small.css */
+@media (max-width: 1250px) {
+    :root {
+        --wl-heading-xxl-font-family: var(--wl-fonts-primary);
+        --wl-heading-xxl-size: 24px;
+        --wl-heading-xxl-font-weight: var(--wl-fontweight-thin);
+        --wl-heading-xxl-line-height: 32px;
+        --wl-heading-xxl-spacing: 0;
+        --wl-heading-subheading-font: var(--wl-fonts-primary);
+        --wl-heading-subheading-size: 16px;
+        --wl-heading-subheading-weight: var(--wl-fontweight-normal);
+        --wl-heading-subheading-line-height: 24px;
+        --wl-label-medium-font: var(--wl-fonts-primary);
+        --wl-label-medium-size: 16px;
+        --wl-label-medium-weight: var(--wl-fontweight-normal);
+        --wl-label-medium-line-height: 24px;
+    }
+}

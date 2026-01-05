@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "🔍 Running typecheck..."
+npm run pre-commit
+echo "✅ Husky pre-commit finished"

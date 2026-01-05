@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--wl-fonts-primary), -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--wl-background-base-default);
+  color: var(--wl-content-neutral-base);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  background-color: var(--wl-background-soft-default);
+  color: var(--wl-content-neutral-secondary);
+  padding: 2px 6px;
+  border-radius: var(--wl-border-radius-small);
+  font-size: 0.9em;
+}
+
+.playground {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: var(--wl-padding-medium);
+    border-bottom: var(--wl-border-width-default) solid
+      var(--wl-border-default-primary);
+  }
+
+  h1 {
+    color: var(--wl-content-neutral-base);
+    margin: 0;
+    font-size: 32px;
+  }
+
+  h2 {
+    color: var(--wl-content-neutral-secondary);
+    margin-bottom: var(--wl-padding-medium);
+    border-bottom: var(--wl-border-width-thick) solid
+      var(--wl-border-default-primary);
+    padding-bottom: var(--wl-padding-small);
+  }
+
+  .section {
+    background-color: var(--wl-background-elevated-default);
+    padding: var(--wl-dimensions-30);
+    margin-bottom: var(--wl-dimensions-30);
+    border-radius: var(--wl-border-radius-large);
+    border: var(--wl-border-width-default) solid
+      var(--wl-border-subtile-primary);
+    transition: all 0.3s ease;
+
+    p {
+      color: var(--wl-content-neutral-tertiary);
+      line-height: 1.6;
+    }
+  }
+
+  .button-examples {
+    display: flex;
+    gap: var(--wl-padding-medium);
+    flex-wrap: wrap;
+    margin-bottom: var(--wl-padding-medium);
+  }
+}
