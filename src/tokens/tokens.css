@@ -18,9 +18,9 @@
     --wl-neutral-700: #414651; /* Dark neutral */
     --wl-neutral-800: #252b37; /* Very dark neutral */
     --wl-neutral-900: #101828; /* Darkest neutral shade */
-    --wl-neutral-white: #ffffff; /* Pure white */
-    --wl-neutral-black: #000000; /* Pure black */
-    --wl-neutral-transparant: #ffffff00; /* Transparent */
+    --wl-neutral-white: #fff; /* Pure white */
+    --wl-neutral-black: #000; /* Pure black */
+    --wl-neutral-transparant: #fff0; /* Transparent */
 
     /**
      * @tokens Colors
@@ -173,7 +173,7 @@
      * @tokens Semantic Colors - Dark Mode
      * @presenter Color
      */
-    --wl-color: #ffffff; /* Base text color for dark mode */
+    --wl-color: #fff; /* Base text color for dark mode */
 
     /* Border colors */
     --wl-border-default-primary: var(--wl-neutral-800); /* Default border color */
@@ -196,7 +196,9 @@
     --wl-background-soft-default: var(--wl-neutral-800); /* Soft background */
     --wl-background-elevated-default: var(--wl-neutral-700); /* Elevated background */
     --wl-background-transparant-default: var(--wl-neutral-transparant); /* Transparent background */
-    --wl-background-interactive-primary: var(--wl-brand-primary); /* Interactive background */
+    --wl-background-interactive-primary: var(--wl-mint-400); /* Interactive background - lighter for dark mode */
+    --wl-background-interactive-primary-hover: var(--wl-mint-300); /* Interactive hover - lighter for dark mode */
+    --wl-background-interactive-primary-pressed: var(--wl-mint-200); /* Interactive pressed - lighter for dark mode */
 
     /* Feedback colors */
     --wl-feedback-error-primary: var(--wl-red-400); /* Primary error color */
@@ -229,7 +231,7 @@
      * @tokens Semantic Colors - Light Mode
      * @presenter Color
      */
-    --wl-color: #ffffff; /* Base text color for light mode */
+    --wl-color: #fff; /* Base text color for light mode */
 
     /* Border colors */
     --wl-border-default-primary: var(--wl-neutral-100); /* Default border color */
@@ -253,6 +255,8 @@
     --wl-background-elevated-default: var(--wl-neutral-200); /* Elevated background */
     --wl-background-transparant-default: var(--wl-neutral-transparant); /* Transparent background */
     --wl-background-interactive-primary: var(--wl-brand-primary); /* Interactive background */
+    --wl-background-interactive-primary-hover: var(--wl-mint-600); /* Interactive hover - darker for light mode */
+    --wl-background-interactive-primary-pressed: var(--wl-mint-700); /* Interactive pressed - darker for light mode */
 
     /* Feedback colors */
     --wl-feedback-error-primary: var(--wl-red-500); /* Primary error color */
@@ -263,7 +267,7 @@
 }
 
 /* small.css */
-@media (max-width: 1250px) {
+@media (width <= 1250px) {
     :root {
         --wl-heading-xxl-font-family: var(--wl-fonts-primary);
         --wl-heading-xxl-size: 24px;

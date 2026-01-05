@@ -18,6 +18,8 @@ export default defineConfig([
   globalIgnores([
     'dist',
     '*.config.js',
+    '*.config.ts',
+    'vite.config.*.ts',
     '.*.js',
   ]),
   {
@@ -119,12 +121,28 @@ export default defineConfig([
   {
     files: [
       'vite.config.ts',
+      'vite.config.*.ts',
       '.storybook/**/*.ts',
+      '.storybook/**/*.tsx',
       '**/*.stories.tsx',
       '**/*.stories.ts',
+      'playground/**/*.ts',
+      'playground/**/*.tsx',
     ],
     rules: {
       'import/no-default-export': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-return': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      'react-refresh/only-export-components': 'off',
+      'react-hooks/set-state-in-effect': 'off',
+      '@eslint-react/hooks-extra/no-direct-set-state-in-use-effect': 'off',
+      '@eslint-react/naming-convention/use-state': 'off',
+      '@typescript-eslint/no-unnecessary-condition': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      'max-lines': 'off',
     },
   },
   ...storybook.configs['flat/recommended'],

@@ -1,100 +1,58 @@
-import addonA11y from '@storybook/addon-a11y'
-import addonDocs from '@storybook/addon-docs'
-import { definePreview } from '@storybook/react-vite'
-import type { ReactRenderer } from '@storybook/react'
-import { create } from '@storybook/theming/create'
-import '../src/tokens.css'
+import '../src/tokens/tokens.css'
+import type { Decorator, Preview } from '@storybook/react-vite'
+import { useEffect, type FC } from 'react'
 
-const storybookTheme = create({
-  base: 'light',
-  brandTitle: 'Aurora Design System',
-  brandUrl: '/',
-  brandTarget: '_self',
+const ThemeWrapper: FC<{ theme: string; children: React.ReactNode }> = ({
+  theme,
+  children,
+}) => {
+  useEffect(() => {
+    const root = document.documentElement
+    const body = document.body
 
-  colorPrimary: '#45beaa',
-  colorSecondary: '#0ba5ec',
+    root.classList.remove('light', 'dark')
+    root.classList.add(theme)
 
-  // UI
-  appBg: '#ffffff',
-  appContentBg: '#ffffff',
-  appBorderColor: '#e9eaeb',
-  appBorderRadius: 4,
+    // Also add to body in case components check parent
+    body.classList.remove('light', 'dark')
+    body.classList.add(theme)
 
-  // Typography
-  fontBase: "'Inter', system-ui, -apple-system, sans-serif",
-  fontCode: 'monospace',
+    // Apply theme colors using CSS variables
+    body.style.backgroundColor = 'var(--wl-background-base-default)'
+    body.style.color = 'var(--wl-content-neutral-base)'
+  }, [theme])
 
-  // Text colors
-  textColor: '#101828',
-  textInverseColor: '#ffffff',
+  return <>{children}</>
+}
 
-  // Toolbar default and active colors
-  barTextColor: '#717680',
-  barSelectedColor: '#45beaa',
-  barBg: '#ffffff',
+const withTheme: Decorator = (Story, context) => {
+  const theme = (context.globals.theme as string) || 'light'
 
-  // Form colors
-  inputBg: '#ffffff',
-  inputBorder: '#d5d7da',
-  inputTextColor: '#101828',
-  inputBorderRadius: 4,
-})
+  return (
+    <ThemeWrapper theme={theme}>
+      <Story />
+    </ThemeWrapper>
+  )
+}
 
-export default definePreview({
-  addons: [addonA11y(), addonDocs()],
-  tags: ['autodocs'],
-  parameters: {
-    a11y: {
-      options: { xpath: true },
-    },
-    backgrounds: {
-      disable: true,
-    },
-    designToken: {
-      defaultTab: 'Colors',
-    },
-    docs: {
-      toc: true,
-      theme: storybookTheme,
-    },
-  },
-  decorators: [
-    (Story, context) => {
-      const theme = (context.globals.theme || 'light') as 'light' | 'dark'
-
-      // Apply theme to document
-      if (typeof document !== 'undefined') {
-        document.documentElement.classList.remove('light', 'dark')
-        document.documentElement.classList.add(theme)
-      }
-
-      return (
-        <div
-          style={{
-            backgroundColor: 'var(--wl-background-base-default)',
-            color: 'var(--wl-content-neutral-base)',
-            minHeight: '100vh',
-            padding: '20px',
-          }}
-        >
-          <Story />
-        </div>
-      )
-    },
-  ],
+export default {
+  decorators: [withTheme],
   globalTypes: {
     theme: {
-      name: 'Theme',
-      description: 'Global theme for components',
+      description: 'Theme',
       defaultValue: 'light',
       toolbar: {
+        title: 'Theme',
         icon: 'circlehollow',
         items: [
-          { value: 'light', title: 'Light', icon: 'sun' },
-          { value: 'dark', title: 'Dark', icon: 'moon' },
+          { value: 'light', icon: 'sun', title: 'Light' },
+          { value: 'dark', icon: 'moon', title: 'Dark' },
         ],
         dynamicTitle: true,
       },
     },
   },
-})
+  parameters: {
+    backgrounds: { disable: true },
+  },
+} satisfies Preview

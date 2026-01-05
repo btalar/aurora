@@ -1,33 +1,114 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Button } from '.'
+import { Button } from './Button'
 
-const meta = {
+const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'danger'],
+      description: 'Visual style variant of the button',
+      table: {
+        defaultValue: { summary: 'primary' },
+        type: { summary: "'primary' | 'secondary' | 'danger'" },
+      },
+    },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
-      description: 'Button size',
+      description: 'Size of the button',
+      table: {
+        defaultValue: { summary: 'medium' },
+        type: { summary: "'small' | 'medium' | 'large'" },
+      },
     },
-    disabled: {
+    children: {
+      control: 'text',
+      description: 'Button contents (text or React elements)',
+      table: {
+        type: { summary: 'ReactNode' },
+      },
+    },
+    isDisabled: {
       control: 'boolean',
-      description: 'Disabled state',
+      description: 'Whether the button is disabled',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      },
+    },
+    onPress: {
+      action: 'pressed',
+      description:
+        'Handler called when the button is pressed (React Aria uses onPress instead of onClick)',
+      table: {
+        type: { summary: '(e: PressEvent) => void' },
+      },
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS class name',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    type: {
+      control: 'select',
+      options: ['button', 'submit', 'reset'],
+      description: 'HTML button type',
+      table: {
+        defaultValue: { summary: 'button' },
+        type: { summary: "'button' | 'submit' | 'reset'" },
+      },
+    },
+    autoFocus: {
+      control: 'boolean',
+      description: 'Whether the button should receive focus on mount',
+      table: {
+        type: { summary: 'boolean' },
+      },
     },
   },
-} satisfies Meta<typeof Button>
-
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
   args: {
     children: 'Button',
+    variant: 'primary',
+    size: 'medium',
+  },
+}
+
+export default meta
+type Story = StoryObj<typeof Button>
+
+export const Playground: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Button',
+  },
+}
+
+export const Primary: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Primary Button',
+  },
+}
+
+export const Secondary: Story = {
+  args: {
+    variant: 'secondary',
+    children: 'Secondary Button',
+  },
+}
+
+export const Danger: Story = {
+  args: {
+    variant: 'danger',
+    children: 'Delete',
   },
 }
 
@@ -54,26 +135,17 @@ export const Large: Story = {
 
 export const Disabled: Story = {
   args: {
-    disabled: true,
+    isDisabled: true,
     children: 'Disabled Button',
   },
 }
 
-export const AllSizes: Story = {
+export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-      <Button size="small">Small</Button>
-      <Button size="medium">Medium</Button>
-      <Button size="large">Large</Button>
-    </div>
-  ),
-}
-
-export const WithStates: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-      <Button>Normal</Button>
-      <Button disabled>Disabled</Button>
+    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="danger">Danger</Button>
     </div>
   ),
 }

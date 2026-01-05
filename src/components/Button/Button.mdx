@@ -1,0 +1,60 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+A versatile button component built with **React Aria** for full accessibility support.
+
+## Interactive Example
+
+Try it out! Modify the props below to see how the button changes.
+
+<Canvas of={ButtonStories.Playground} />
+<Controls of={ButtonStories.Playground} />
+
+## Features
+
+- 🎨 **Three variants**: Primary, Secondary, and Danger
+- 📏 **Three sizes**: Small, Medium, and Large
+- 🌓 **Dark mode support**: Automatically adapts to light and dark themes
+- ♿ **Accessible**: Built with React Aria for keyboard navigation, screen readers, and ARIA attributes
+- 🎯 **Interactive states**: Hover, pressed, focus, and disabled states
+
+## Usage
+
+```tsx
+import { Button } from '@your-package/components'
+
+function MyComponent() {
+  return (
+    <Button variant="primary" onPress={() => console.log('Pressed!')}>
+      Click me
+    </Button>
+  )
+}
+```
+
+## Examples
+
+### Variants
+
+<Canvas of={ButtonStories.Primary} withSource="none" />
+<Canvas of={ButtonStories.Secondary} withSource="none" />
+<Canvas of={ButtonStories.Danger} withSource="none" />
+
+### Sizes
+
+<Canvas of={ButtonStories.Small} withSource="none" />
+<Canvas of={ButtonStories.Medium} withSource="none" />
+<Canvas of={ButtonStories.Large} withSource="none" />
+
+### States
+
+<Canvas of={ButtonStories.Disabled} withSource="none" />
+
+### All Variants Together
+
+<Canvas of={ButtonStories.AllVariants} withSource="none" />
+

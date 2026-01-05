@@ -1,0 +1,103 @@
+.button {
+  font-family: var(--wl-fonts-primary);
+  font-weight: var(--wl-fontweight-normal);
+  border-radius: var(--wl-border-radius-large);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--wl-dimensions-8);
+  transition: all 0.15s ease;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Sizes */
+.sm {
+  padding: var(--wl-dimensions-4) var(--wl-dimensions-8);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.md {
+  padding: var(--wl-dimensions-8) var(--wl-dimensions-16);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.lg {
+  padding: var(--wl-dimensions-10) var(--wl-dimensions-24);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* Variants - Primary */
+.primary {
+  background: var(--wl-background-interactive-primary);
+  color: var(--wl-content-neutral-white);
+  border: var(--wl-border-width-default) solid var(--wl-background-interactive-primary);
+}
+
+.primary[data-hovered] {
+  background: var(--wl-background-interactive-primary-hover);
+  border-color: var(--wl-background-interactive-primary-hover);
+}
+
+.primary[data-pressed] {
+  background: var(--wl-background-interactive-primary-pressed);
+  border-color: var(--wl-background-interactive-primary-pressed);
+}
+
+/* Variants - Secondary */
+.secondary {
+  background: var(--wl-background-base-default);
+  color: var(--wl-content-neutral-base);
+  border: var(--wl-border-width-default) solid var(--wl-border-strong-primary);
+}
+
+.secondary[data-hovered] {
+  background: var(--wl-background-soft-default);
+  border-color: var(--wl-border-strong-primary);
+}
+
+.secondary[data-pressed] {
+  background: var(--wl-background-elevated-default);
+  border-color: var(--wl-border-strong-primary);
+}
+
+/* Variants - Danger */
+.danger {
+  background: var(--wl-background-feedback-error);
+  color: var(--wl-content-neutral-white);
+  border: var(--wl-border-width-default) solid var(--wl-border-feedback-error);
+}
+
+.danger[data-hovered] {
+  opacity: 0.9;
+}
+
+.danger[data-pressed] {
+  opacity: 0.8;
+}
+
+.button[data-pressed] {
+  transform: scale(0.98);
+}
+
+.button[data-focus-visible] {
+  outline: 2px solid var(--wl-brand-primary);
+  outline-offset: 2px;
+}
+
+.button[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+}

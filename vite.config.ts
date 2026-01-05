@@ -18,7 +18,13 @@ export default defineConfig({
       tsconfigPath: fileURLToPath(
         new URL('tsconfig.build.json', import.meta.url),
       ),
-      exclude: ['**/*.stories.ts', '**/*.stories.tsx', '**/*.test.ts', '**/*.test.tsx', '__tests__/**/*'],
+      exclude: [
+        '**/*.stories.ts',
+        '**/*.stories.tsx',
+        '**/*.test.ts',
+        '**/*.test.tsx',
+        '__tests__/**/*',
+      ],
     }),
     preserveDirectives(),
   ],
@@ -72,7 +78,7 @@ export default defineConfig({
       provider: 'v8',
       //include: ['src/**/*.{ts,tsx}'],
       exclude: [
-        '*.scss',
+        '*.css',
         'src/components/main.ts',
         'src/components/**/*.stories.ts',
       ],

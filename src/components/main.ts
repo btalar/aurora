@@ -1,2 +1,2 @@
-export { Button } from './Button/index.tsx'
+export { Button } from './Button'
 export { ThemeProvider, useTheme } from '../providers/ThemeProvider'

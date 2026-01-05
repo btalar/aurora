@@ -196,7 +196,7 @@ export default defineConfig({
 
 ### Button Component
 
-A simple Button Component. Create a directory named _components_ in _/src_. Then you can create the _Button_ and finaly an index.tsx file in _src/components/Button/_.
+A simple Button Component. Create a directory named _components_ in _/src_. Then you can create the _Button_ and finaly an Button.tsx file in _src/components/Button/_.
 
 ```typescript
 'use client'
@@ -302,8 +302,8 @@ Next to the _index.tsx_ file, you can create the _style.module.scss_ file.
 Before running the build command, there is one last thing to do. The _vite.config.js_ file references a _src/components/main.ts_ file. This file lists all the components you want to package in the library, you will have to create it.
 
 ```typescript
-export { Text } from './Text/index.tsx'
-export { Button } from './Button/index.tsx'
+export { Text } from './Text/Button.tsx'
+export { Button } from './Button/Button.tsx'
 ```
 
 ```console

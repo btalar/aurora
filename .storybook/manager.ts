@@ -1,8 +1,8 @@
-import { addons } from '@storybook/manager-api'
-import { create } from '@storybook/theming/create'
+import { addons } from 'storybook/manager-api'
+import { create } from 'storybook/theming/create'
 
 const theme = create({
-  base: 'light',
+  base: 'dark',
   brandTitle: 'Aurora Design System',
   brandUrl: '/',
   brandTarget: '_self',
