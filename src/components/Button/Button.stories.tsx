@@ -84,7 +84,7 @@ const meta: Meta<typeof Button> = {
 export default meta
 type Story = StoryObj<typeof Button>
 
-export const Playground: Story = {
+export const InteractiveExample: Story = {
   args: {
     variant: 'primary',
     children: 'Button',

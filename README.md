@@ -173,7 +173,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: fileURLToPath(new URL('src/components/main.ts', import.meta.url)),
+      entry: fileURLToPath(new URL('src/components/index.ts', import.meta.url)),
       formats: ['es'],
     },
     rolldownOptions: {
@@ -628,7 +628,7 @@ We must add the _.storybook/_ directory to the ts config, by updating _tsconfig.
  ➜ npm i -D -E vite-tsconfig-paths
 ```
 
-Then we will configure storybook to use the new CSF (Component Story Format) feature. Plus, we will create the stories files just next to the components definition, not in the \_\_tests\_\_ directory. Replace the content of _.storybook/main.ts with
+Then we will configure storybook to use the new CSF (Component Story Format) feature. Plus, we will create the stories files just next to the components definition, not in the \_\_tests\_\_ directory. Replace the content of _.storybook/index.ts with
 ```typescript
 import { withoutVitePlugins } from '@storybook/builder-vite'
 import { defineMain } from '@storybook/react-vite/node'
@@ -899,7 +899,7 @@ test: {
     coverage: {
       provider: 'v8',
       include: ['src/**/*'],
-      exclude: ['src/components/main.ts', 'src/components/**/*.stories.ts'],
+      exclude: ['src/components/index.ts', 'src/components/**/*.stories.ts'],
       clean: true
     },
   },

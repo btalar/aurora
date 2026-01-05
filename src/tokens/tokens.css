@@ -165,6 +165,15 @@
     --wl-border-radius-medium: var(--wl-dimensions-4); /* Medium border radius - 4px */
     --wl-border-radius-large: var(--wl-dimensions-8); /* Large border radius - 8px */
     --wl-border-radius-rounded: var(--wl-dimensions-999); /* Fully rounded - 999px */
+
+    /**
+     * @tokens Breakpoints
+     * @presenter Spacing
+     */
+    --wl-breakpoint-sm: 640px; /* Small screen breakpoint */
+    --wl-breakpoint-md: 768px; /* Medium screen breakpoint */
+    --wl-breakpoint-lg: 1024px; /* Large screen breakpoint */
+    --wl-breakpoint-xl: 1250px; /* Extra large screen breakpoint */
 }
 
 /* darkmode.css */
@@ -231,7 +240,7 @@
      * @tokens Semantic Colors - Light Mode
      * @presenter Color
      */
-    --wl-color: #fff; /* Base text color for light mode */
+    --wl-color: var(--wl-neutral-900); /* Base text color for light mode */
 
     /* Border colors */
     --wl-border-default-primary: var(--wl-neutral-100); /* Default border color */

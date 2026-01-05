@@ -46,7 +46,7 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: fileURLToPath(new URL('src/components/main.ts', import.meta.url)),
+      entry: fileURLToPath(new URL('src/components/index.ts', import.meta.url)),
       formats: ['es'],
     },
     rolldownOptions: {
@@ -79,7 +79,7 @@ export default defineConfig({
       //include: ['src/**/*.{ts,tsx}'],
       exclude: [
         '*.css',
-        'src/components/main.ts',
+        'src/components/index.ts',
         'src/components/**/*.stories.ts',
       ],
       clean: true,

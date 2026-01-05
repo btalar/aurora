@@ -3,6 +3,7 @@
   "private": false,
   "version": "0.0.1",
   "type": "module",
+  "license": "UNLICENSED TODO",
   "sideEffects": [
     "**/*.css"
   ],
@@ -14,16 +15,13 @@
   "types": "./dist/components/main.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/components/main.js",
-      "types": "./dist/components/main.d.ts"
+      "import": "./dist/components/main.js"
     },
     "./components": {
-      "import": "./dist/components/main.js",
-      "types": "./dist/components/main.d.ts"
+      "import": "./dist/components/main.js"
     },
     "./components/*": {
-      "import": "./dist/components/*",
-      "types": "./dist/components/*.d.ts"
+      "import": "./dist/components/*"
     }
   },
   "scripts": {
@@ -34,6 +32,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "slint": "npx stylelint \"**/*.css\"",
+    "slint:fix": "npx stylelint \"**/*.css\" --fix",
     "ncui": "npx npm-check-updates -i",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",

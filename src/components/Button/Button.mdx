@@ -11,8 +11,8 @@ A versatile button component built with **React Aria** for full accessibility su
 
 Try it out! Modify the props below to see how the button changes.
 
-<Canvas of={ButtonStories.Playground} />
-<Controls of={ButtonStories.Playground} />
+<Canvas of={ButtonStories.InteractiveExample} />
+<Controls of={ButtonStories.InteractiveExample} />
 
 ## Features
 
@@ -21,6 +21,7 @@ Try it out! Modify the props below to see how the button changes.
 - 🌓 **Dark mode support**: Automatically adapts to light and dark themes
 - ♿ **Accessible**: Built with React Aria for keyboard navigation, screen readers, and ARIA attributes
 - 🎯 **Interactive states**: Hover, pressed, focus, and disabled states
+- 📱 **Fully responsive**: Adapts to all screen sizes with optimized touch targets for mobile
 
 ## Usage
 
@@ -57,4 +58,46 @@ function MyComponent() {
 ### All Variants Together
 
 <Canvas of={ButtonStories.AllVariants} withSource="none" />
+
+## Responsiveness
+
+The Button component is fully responsive and adapts to different screen sizes using a mobile-first approach.
+
+### Breakpoint Behavior
+
+| Breakpoint | Width | Button Behavior |
+|------------|-------|-----------------|
+| **Mobile** | ≤640px | Full-width buttons with larger touch targets (min 44px height) |
+| **Small** | ≥640px | Auto-width with minimum width constraints |
+| **Tablet** | ≥768px | Increased spacing and padding |
+| **Desktop** | ≥1024px | Enhanced hover effects with elevation and transforms |
+| **XL** | ≥1250px | Larger font sizes for large buttons |
+
+### Mobile Optimizations
+
+- **Full-width layout** on mobile (≤640px) for easier tapping
+- **Minimum touch targets** of 44px (iOS) to 52px for better accessibility
+- **Reduced icon gaps** on small screens for better visual balance
+- **No hover effects** on touch devices (uses `@media (hover: hover)`)
+
+### Testing Responsiveness
+
+Use the Storybook viewport addon (toolbar icon) to test buttons at different screen sizes:
+1. Select different viewports from the dropdown
+2. Observe how buttons adapt their size, padding, and layout
+3. On mobile viewport, buttons become full-width
+4. On desktop viewport with mouse, see enhanced hover effects
+
+### Code Example
+
+```tsx
+// Button automatically adapts to screen size
+<Button variant="primary" size="medium">
+  Responsive Button
+</Button>
+
+// On mobile: full-width, larger touch target
+// On tablet+: auto-width with minimum constraints
+// On desktop: enhanced hover effects
+```
 

@@ -6,9 +6,34 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'ignore-storybook-files',
+      resolveId(id) {
+        if (id.includes('.storybook') || id.includes('Welcome.mdx')) {
+          return id
+        }
+      },
+      load(id) {
+        if (id.includes('.storybook') || id.includes('Welcome.mdx')) {
+          return 'export default {}'
+        }
+      },
+    },
+  ],
   root: 'playground',
   publicDir: false,
+  optimizeDeps: {
+    exclude: ['.storybook'],
+  },
+  server: {
+    port: 3000,
+    open: true,
+    fs: {
+      deny: ['.storybook/**'],
+    },
+  },
   css: {
     devSourcemap: true,
     modules: {
@@ -23,10 +48,6 @@ export default defineConfig({
         return `${className}__${hash}`
       },
     },
-  },
-  server: {
-    port: 3000,
-    open: true,
   },
   build: {
     outDir: 'playground-dist',

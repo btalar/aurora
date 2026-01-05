@@ -1,21 +1,24 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react-hooks/set-state-in-effect */
-/* eslint-disable @eslint-react/hooks-extra/no-direct-set-state-in-use-effect */
 'use client'
 
 import {
   createContext,
   use,
   useEffect,
+  useLayoutEffect,
   useState,
   type ReactElement,
   type ReactNode,
 } from 'react'
 
-type Theme = 'light' | 'dark'
+import { useLocalStorage } from '../hooks'
+
+type Theme = 'light' | 'dark' | 'system'
+type ResolvedTheme = 'light' | 'dark'
 
 interface ThemeContextType {
   theme: Theme
+  resolvedTheme: ResolvedTheme
   toggleTheme: () => void
   setTheme: (theme: Theme) => void
 }
@@ -30,33 +33,57 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'light',
+  defaultTheme = 'system',
   storageKey = 'aurora-theme',
 }: ThemeProviderProps): ReactElement {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return defaultTheme
-    const stored = localStorage.getItem(storageKey) as Theme | null
-    return stored === 'light' || stored === 'dark' ? stored : defaultTheme
-  })
+  const [theme, setTheme] = useLocalStorage<Theme>(storageKey, defaultTheme)
   const [mounted, setMounted] = useState(false)
 
+  const getSystemTheme = (): ResolvedTheme => {
+    if (typeof window === 'undefined') return 'light'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
+  }
+
+  const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(getSystemTheme)
+
+  // Detect system theme preference changes
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const handler = (e: MediaQueryListEvent): void => {
+      setSystemTheme(e.matches ? 'dark' : 'light')
+    }
+
+    mediaQuery.addEventListener('change', handler)
+    return (): void => {
+      mediaQuery.removeEventListener('change', handler)
+    }
+  }, [])
+
+  // Use layout effect to avoid hydration mismatch
+  useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect, @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setMounted(true)
   }, [])
+
+  // Resolve the actual theme to apply
+  const resolvedTheme: ResolvedTheme = theme === 'system' ? systemTheme : theme
 
   useEffect(() => {
     if (!mounted) return
 
     const root = window.document.documentElement
     root.classList.remove('light', 'dark')
-    root.classList.add(theme)
-
-    // Save to localStorage
-    localStorage.setItem(storageKey, theme)
-  }, [theme, mounted, storageKey])
+    root.classList.add(resolvedTheme)
+  }, [resolvedTheme, mounted])
 
   const toggleTheme = (): void => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+    setTheme((prev) => {
+      if (prev === 'system') return resolvedTheme === 'light' ? 'dark' : 'light'
+      return prev === 'light' ? 'dark' : 'light'
+    })
   }
 
   const handleSetTheme = (newTheme: Theme): void => {
@@ -65,6 +92,7 @@ export function ThemeProvider({
 
   const value: ThemeContextType = {
     theme,
+    resolvedTheme,
     toggleTheme,
     setTheme: handleSetTheme,
   }

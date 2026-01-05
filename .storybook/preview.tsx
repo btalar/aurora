@@ -54,5 +54,52 @@ export default {
   },
   parameters: {
     backgrounds: { disable: true },
+    viewport: {
+      viewports: {
+        mobile: {
+          name: 'Mobile',
+          styles: {
+            width: '375px',
+            height: '667px',
+          },
+        },
+        sm: {
+          name: 'Small (640px)',
+          styles: {
+            width: '640px',
+            height: '900px',
+          },
+        },
+        md: {
+          name: 'Medium (768px)',
+          styles: {
+            width: '768px',
+            height: '1024px',
+          },
+        },
+        lg: {
+          name: 'Large (1024px)',
+          styles: {
+            width: '1024px',
+            height: '768px',
+          },
+        },
+        xl: {
+          name: 'Extra Large (1250px)',
+          styles: {
+            width: '1250px',
+            height: '900px',
+          },
+        },
+        desktop: {
+          name: 'Desktop (1920px)',
+          styles: {
+            width: '1920px',
+            height: '1080px',
+          },
+        },
+      },
+      defaultViewport: 'desktop',
+    },
   },
 } satisfies Preview

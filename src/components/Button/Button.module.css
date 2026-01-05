@@ -12,7 +12,6 @@
   text-decoration: none;
 }
 
-/* Sizes */
 .sm {
   padding: var(--wl-dimensions-4) var(--wl-dimensions-8);
   font-size: 14px;
@@ -31,7 +30,6 @@
   line-height: 28px;
 }
 
-/* Variants - Primary */
 .primary {
   background: var(--wl-background-interactive-primary);
   color: var(--wl-content-neutral-white);
@@ -65,7 +63,6 @@
   border-color: var(--wl-border-strong-primary);
 }
 
-/* Variants - Danger */
 .danger {
   background: var(--wl-background-feedback-error);
   color: var(--wl-content-neutral-white);
@@ -94,10 +91,42 @@
   cursor: not-allowed;
 }
 
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1em;
-  height: 1em;
+
+/* ==========================================================================
+   Responsive Styles - Mobile First
+   ========================================================================== */
+
+/* Mobile (≤640px) - Smaller buttons optimized for touch */
+@media (width <= 640px) {
+  .button {
+    width: auto;
+    min-width: fit-content;
+    gap: var(--wl-dimensions-4);
+  }
+
+  /* Smaller, more compact buttons on mobile */
+  .sm {
+    padding: var(--wl-dimensions-4) var(--wl-dimensions-10);
+    font-size: 12px;
+    line-height: var(--wl-dimensions-16);
+    min-height: var(--wl-dimensions-32);
+  }
+
+  .md {
+    padding: var(--wl-padding-small) var(--wl-dimensions-16);
+    font-size: 14px;
+    line-height: var(--wl-dimensions-20);
+    min-height: var(--wl-dimensions-32);
+  }
+
+  .lg {
+    padding: var(--wl-padding-small) var(--wl-dimensions-20);
+    font-size: 16px;
+    line-height: var(--wl-dimensions-24);
+    min-height: 40px;
+  }
+
+  .button {
+    border-radius: var(--wl-border-radius-medium);
+  }
 }
