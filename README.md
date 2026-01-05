@@ -173,7 +173,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: fileURLToPath(new URL('src/components/index.ts', import.meta.url)),
+      entry: fileURLToPath(new URL('src/components/main.ts', import.meta.url)),
       formats: ['es'],
     },
     rolldownOptions: {
@@ -196,7 +196,7 @@ export default defineConfig({
 
 ### Button Component
 
-A simple Button Component. Create a directory named _components_ in _/src_. Then you can create the _Button_ and finaly an Button.tsx file in _src/components/Button/_.
+A simple Button Component. Create a directory named _components_ in _/src_. Then you can create the _Button_ and finaly an index.tsx file in _src/components/Button/_.
 
 ```typescript
 'use client'
@@ -302,8 +302,8 @@ Next to the _index.tsx_ file, you can create the _style.module.scss_ file.
 Before running the build command, there is one last thing to do. The _vite.config.js_ file references a _src/components/main.ts_ file. This file lists all the components you want to package in the library, you will have to create it.
 
 ```typescript
-export { Text } from './Text/Button.tsx'
-export { Button } from './Button/Button.tsx'
+export { Text } from './Text/index.tsx'
+export { Button } from './Button/index.tsx'
 ```
 
 ```console
@@ -324,7 +324,7 @@ dist/Button-DaN_WDh5.js          2.47 kB │ gzip: 1.11 kB
 ✓ built in 134ms
 ````
 
-Tada 🎉 ! 
+Tada 🎉 !
 
 #### Directives and definitions of types
 
@@ -560,7 +560,7 @@ Then you can add the script in your _package.json_ file.
 
 ### Run linters
 
-And finally you should be able to run 
+And finally you should be able to run
 ```console
 ➜  npm run lint && npm run slint
 ```
@@ -623,12 +623,12 @@ We must add the _.storybook/_ directory to the ts config, by updating _tsconfig.
  "include": ["src/**/*.ts", "src/**/*.tsx", ".storybook/**.ts"],
  ```
 
- A small utility lib for handling aliases
+A small utility lib for handling aliases
  ```console
  ➜ npm i -D -E vite-tsconfig-paths
 ```
 
-Then we will configure storybook to use the new CSF (Component Story Format) feature. Plus, we will create the stories files just next to the components definition, not in the \_\_tests\_\_ directory. Replace the content of _.storybook/index.ts with
+Then we will configure storybook to use the new CSF (Component Story Format) feature. Plus, we will create the stories files just next to the components definition, not in the \_\_tests\_\_ directory. Replace the content of _.storybook/main.ts with
 ```typescript
 import { withoutVitePlugins } from '@storybook/builder-vite'
 import { defineMain } from '@storybook/react-vite/node'
@@ -761,7 +761,7 @@ interface Props {
 
 ### Run storybook
 
-A simple 
+A simple
 ```console
 ➜ npm run storybook
 ```
@@ -893,16 +893,16 @@ and update the test entry of your _vite.config.ts_ file
 ```typescript
 // ...
 test: {
-    environment: 'jsdom',
+  environment: 'jsdom',
     globals: true,
     setupFiles: './__tests__/setupVitest.ts',
     coverage: {
-      provider: 'v8',
+    provider: 'v8',
       include: ['src/**/*'],
-      exclude: ['src/components/index.ts', 'src/components/**/*.stories.ts'],
+      exclude: ['src/components/main.ts', 'src/components/**/*.stories.ts'],
       clean: true
-    },
   },
+},
 // ...  
 ```
 
